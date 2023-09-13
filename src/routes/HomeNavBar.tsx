@@ -2,13 +2,13 @@ import { NavLink } from 'react-router-dom';
 
 export const HomeNavBar = () => {
   return (
-    <div className='mx-2'>
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div className='container'>
+      <nav className="navbar navbar-expand-sm navbar-dark">
         <div className="container-fluid">
-          <div className="collapse navbar-collapse" id="navbarColor01">
+          <div className="collapse navbar-collapse">
             <ul className="navbar-nav me-auto">
 
-              <NavLink to="/FormTask" className="nav-link btn btn-info">
+              <NavLink to="/FormTask" className="nav-link btn btn-outline-primary">
               FormTask
               </NavLink>
 
@@ -17,7 +17,8 @@ export const HomeNavBar = () => {
         </div>
       </nav>
 
-      <h1>En esta sección están las rutas</h1>
+      <h1>HOME PAGE</h1>
+      <p>En esta sección están las rutas</p>
     </div>
   )
 }
