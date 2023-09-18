@@ -8,8 +8,12 @@ export const HomeNavBar = () => {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav me-auto">
 
-              <NavLink to="/FormTask" className="nav-link btn btn-outline-primary">
+              <NavLink to="/FormTask" className="nav-link btn btn-outline-primary mx-1">
               FormTask
+              </NavLink>
+
+              <NavLink to="/Suscriptores" className="nav-link btn btn-outline-primary mx-1">
+              Suscriptores
               </NavLink>
 
             </ul>

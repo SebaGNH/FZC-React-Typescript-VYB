@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ButtonBack } from "../../components/ButtonBack";
 
 // Lo creamos con un Type para que sea más abreviado
@@ -11,12 +11,15 @@ export const FormTask = () => {
   const [taskList, setTaskList] = useState<string[]>([]);
 
   // const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) : void => {
+
+  //Agregar nuevo elemento a la lista
   const handleSubmit = (ev: FormElement) : void => {
     ev.preventDefault();
     setTaskList([...taskList, newTask]);
     setNewTask(''); // limpiamos
   }
 
+  // Eliminar elemento de la lista
   const removeTask = (i: number) => {
     const updateTasks = [...taskList];
     updateTasks.splice(i,1);
