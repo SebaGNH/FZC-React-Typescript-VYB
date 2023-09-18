@@ -1,18 +1,30 @@
 import React, { useState } from 'react'
+import { SubI } from '../interfaces';
+
+interface FormState {
+  inputV: SubI;
+}
 
 export const FormSubs = () => {
-  const [inputValues, setInputValues] = useState({
+  // const [inputValues, setInputValues] = useState<SubI>({
+  const [inputValues, setInputValues] = useState<FormState["inputV"]>({
     nick: '',
     email:'',
-    avatar: '',
-    birthday: ''
+    description: ''
   });
 
+  // Handle Submit
   const handleSubmit = (ev) => {
     ev.preventDefault();
     console.log('handleSubmit', inputValues);
+    setInputValues({
+      nick: '',
+      email:'',
+      description: ''
+    });
   }
 
+  // Handle Change
   const handleChange = (ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setInputValues( {...inputValues,
     [ev.target.name]: ev.target.value});
@@ -24,12 +36,9 @@ export const FormSubs = () => {
 
       <input onChange={handleChange} value={inputValues.email} type="text" name='email' placeholder='email' className='form-control mb-2'/>
 
-      <input onChange={handleChange} value={inputValues.avatar} type="text" name='avatar' placeholder='avatar' className='form-control mb-2'/>
-
-      <textarea onChange={handleChange} value={inputValues.birthday} name='birthday' placeholder='birthday' className='form-control mb-2'/>
+      <textarea onChange={handleChange} value={inputValues.description} name='description' placeholder='description' className='form-control mb-2'/>
 
       <button type="submit" className='btn btn-primary mt-3'>Enviar</button>
-
     </form>
   )
 }

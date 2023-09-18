@@ -2,8 +2,7 @@ interface Props {
   subs: Array<{
     nick: string;
     email: string;
-    avatar: string;
-    birthday?: string;
+    description?: string;
   }>;
 }
 

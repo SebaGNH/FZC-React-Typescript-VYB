@@ -7,22 +7,19 @@ const initialState = [ // https://randomuser.me/
   {
     nick: 'Christina Douglas',
     email: 'christina.douglas@example.com',
-    avatar: 'https://randomuser.me/api/portraits/women/96.jpg',
-    birthday: '11/1/1962'
+    description: '11/1/1962'
   },
   {
     nick: 'Cassandra Carer',
     email: 'cassandra.carr@example.com',
-    avatar: 'https://randomuser.me/api/portraits/women/37.jpg',
-    birthday: '11/1/1987'
+    description: '11/1/1987'
   }
 ]
 
 interface SubI {
   nick: string;
   email: string;
-  avatar: string;
-  birthday?: string; // que no es obligatorio este dato
+  description?: string; // que no es obligatorio este dato
 }
 
 interface AppState {
