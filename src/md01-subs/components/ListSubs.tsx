@@ -7,8 +7,7 @@ interface Props {
   }>;
 }
 
-export const ListSubs: React.FC<Props> = ({ subs }) => {
-  console.log(subs.map(sub => sub.nick))
+export const ListSubs = ({ subs }: Props) => {
   return (
     <ul>
       {

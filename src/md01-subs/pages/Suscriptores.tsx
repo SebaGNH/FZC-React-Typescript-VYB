@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ButtonBack } from "../../components/ButtonBack";
 import { ListSubs } from "../components/ListSubs";
+import { FormSubs } from "../components/FormSubs";
 
 const initialState = [ // https://randomuser.me/
   {
@@ -46,6 +47,8 @@ export const Suscriptores = () => {
       <h1>Suscriptores</h1>
 
       <ListSubs subs={subs}/>
+
+      <FormSubs />
     </div>
   )
 }
