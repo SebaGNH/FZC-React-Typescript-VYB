@@ -15,6 +15,9 @@ export const HomeNavBar = () => {
               <NavLink to="/Suscriptores" className="nav-link btn btn-outline-primary mx-1">
               Suscriptores
               </NavLink>
+              <NavLink to="/SuscriptoresReducer" className="nav-link btn btn-outline-primary mx-1">
+              Susbs Reducer
+              </NavLink>
 
             </ul>
           </div>
