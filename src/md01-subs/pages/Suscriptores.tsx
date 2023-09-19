@@ -37,6 +37,10 @@ export const Suscriptores = () => {
     setSubs(initialState);
   }, []);
 
+  // Handle Submit
+  const onSubmit = (newSub: SubI): void => {
+    setSubs(subs => [...subs, newSub]);
+  }
 
   return (
     <div className="container">
@@ -46,7 +50,10 @@ export const Suscriptores = () => {
 
       <ListSubs subs={subs}/>
 
-      <FormSubs setSubs={setSubs}/>
+      <FormSubs
+        // setSubs={setSubs}
+        onSubmit={onSubmit}
+      />
     </div>
   )
 }
