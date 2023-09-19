@@ -48,7 +48,7 @@ export const SuscriptoresReducer = () => {
     <div className="container" ref={divRef}>
       <ButtonBack />
 
-      <h1>Suscriptores</h1>
+      <h1>Suscriptores Reducer</h1>
       .
       <ListSubs subs={subs} />
 
