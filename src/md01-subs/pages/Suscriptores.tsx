@@ -28,14 +28,15 @@ interface AppState {
 }
 
 export const Suscriptores = () => {
-  //const [subs, setsubs] = useState<Array<SubI>>([]);
-  // const [subs, setsubs] = useState<SubI[]>([]);
-  const [subs, setsubs] = useState<AppState["subsI"]>([]);
+  //const [subs, setSubs] = useState<Array<SubI>>([]);
+  // const [subs, setSubs] = useState<SubI[]>([]);
+  const [subs, setSubs] = useState<AppState["subsI"]>([]);
   const [newSubsNumber, setNewSubsNumber] = useState<AppState["newSubNumber"]>(0);
 
   useEffect(() => {
-    setsubs(initialState);
-  }, [])
+    setSubs(initialState);
+  }, []);
+
 
   return (
     <div className="container">
@@ -45,7 +46,7 @@ export const Suscriptores = () => {
 
       <ListSubs subs={subs}/>
 
-      <FormSubs />
+      <FormSubs setSubs={setSubs}/>
     </div>
   )
 }

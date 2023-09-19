@@ -5,7 +5,12 @@ interface FormState {
   inputV: SubI;
 }
 
-export const FormSubs = () => {
+interface FormProps {
+  // setSubs: () => {}
+  setSubs: React.Dispatch<React.SetStateAction<SubI[]>>
+}
+
+export const FormSubs = ({setSubs}: FormProps) => {
   // const [inputValues, setInputValues] = useState<SubI>({
   const [inputValues, setInputValues] = useState<FormState["inputV"]>({
     nick: '',
@@ -14,9 +19,10 @@ export const FormSubs = () => {
   });
 
   // Handle Submit
-  const handleSubmit = (ev) => {
+  const handleSubmit = (ev: React.FormEvent<HTMLFormElement> ) => {
     ev.preventDefault();
-    console.log('handleSubmit', inputValues);
+    setSubs(subs => ([...subs, inputValues])); //sumamos uno nuevo
+    // console.log('handleSubmit', inputValues);
     setInputValues({
       nick: '',
       email:'',
