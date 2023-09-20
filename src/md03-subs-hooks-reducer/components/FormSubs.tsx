@@ -1,47 +1,12 @@
-import React, { useReducer } from 'react'
-import { SubI } from '../interfaces';
-
-const initialState = {
-  nick: '',
-  email:'',
-  description: ''
-}
-
-interface FormState {
-  inputV: SubI;
-}
+import { useNewSubForm } from '../hooks/useNewSubForm';
 
 interface FormProps {
   handleSubmit: (newSub: FormState["inputV"]) => void;
 }
 
-type FormReducerAction = {
-  type: "change_value",
-  payload:{
-    inputName:string,
-    inputValue: string
-  }
-} | {
-  type: "clear"
-}
-
-const formReducer = (state: FormState["inputV"], action: FormReducerAction) => {
-  // no se usa default ya que no debería soportar una opción no permitida
-  switch (action.type) {
-    case "change_value":
-      const { inputName, inputValue} = action.payload;
-      return {
-        ...state,
-        [inputName]: inputValue
-      }
-    case "clear":
-      return initialState;
-  }
-}
-
-
 export const FormSubs = ({handleSubmit}: FormProps) => {
-  const [stateInputVal, dispatch] = useReducer(formReducer, initialState);
+
+  const [stateInputVal, dispatch ]  = useNewSubForm();
 
   // Handle Submit
   const onSubmit = (ev: React.FormEvent<HTMLFormElement> ) => {
