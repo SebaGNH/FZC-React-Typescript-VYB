@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { ButtonBack } from "../../components/ButtonBack";
 import { ListSubs } from "../components/ListSubs";
 import { FormSubs } from "../components/FormSubs";
+import { UsersApiI } from "../interfaces";
+import axios from "axios";
 
 
 
@@ -13,29 +15,43 @@ interface SubI {
 
 interface AppState {
   subsI: Array<SubI>;
+  UsersApiI: Array<UsersApiI>;
   newSubNumber: number;
 }
 
 export const SuscriptoresHooksReducer = () => {
   //const [subs, setSubs] = useState<Array<SubI>>([]);
   // const [subs, setSubs] = useState<SubI[]>([]);
-  const [subs, setSubs] = useState<AppState["subsI"]>([]);
+  const [subs, setSubs] = useState<AppState["UsersApiI"]>([]);
   const [newSubsNumber, setNewSubsNumber] = useState<AppState["newSubNumber"]>(0);
-  // es recomendable que inicie en null para evitar conflictos
-  const divRef = useRef<HTMLDivElement>(null);
 
 
-
-  // https://jsonplaceholder.typicode.com/users
   useEffect(() => {
-    const GET_API = async () => {
-      const respuesta = await fetch('https://jsonplaceholder.typicode.com/users');
-      const data = await respuesta.json();
-        console.log(data);
-        // setSubs(data);
-    };
-    GET_API()
-    //setSubs(initialState);
+    const fetchSubs = async (): Promise<UsersApiI> => {
+      const response = await axios
+        .get(`https://jsonplaceholder.typicode.com/users`);
+        return response.data
+    }
+
+    // 1.42
+    const mapFromApiToSubs = (apiResponse: UsersApiI):
+    Array<SubI> => {
+      return apiResponse.map(subFromApi => {
+        const {
+          name: nick,
+          email,
+          website: description
+        } = subFromApi
+        return {
+          nick, email, description
+        }
+      })
+    }
+
+    fetchSubs()
+      .then(mapFromApiToSubs)
+      .then(setSubs)
+
   }, []);
 
   // Handle Submit
@@ -44,11 +60,10 @@ export const SuscriptoresHooksReducer = () => {
   }
 
   return (
-    <div className="container" ref={divRef}>
+    <div className="container">
       <ButtonBack />
 
       <h1>Suscriptores Reducer</h1>
-      .
       <ListSubs subs={subs} />
 
       <FormSubs

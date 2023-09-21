@@ -3,3 +3,8 @@ export interface SubI{
   email: string;
   description?: string;
 }
+export interface UsersApiI{
+  name: string;
+  email: string;
+  website?: string;
+}
