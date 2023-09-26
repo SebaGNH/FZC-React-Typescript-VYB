@@ -1,9 +1,6 @@
+import { UserReqresI } from "../interfaces";
 interface Props {
-  subs: Array<{
-    nick: string;
-    email: string;
-    description?: string;
-  }>;
+  subs: Array<UserReqresI>
 }
 
 export const ListSubs = ({ subs }: Props) => {
@@ -11,13 +8,12 @@ export const ListSubs = ({ subs }: Props) => {
     <ul>
       {
         subs.map( (sub) => (
-          <li key={sub.nick}>
-            <h4>{sub.nick}</h4>
-            <p>{sub.email?.substring(0,30) +" - "+ sub.description}</p>
+          <li key={sub.id}>
+            <h4>{`${sub.first_name} ${sub.last_name}`}</h4>
+            <p>{sub.email?.substring(0,30)}</p>
           </li>
         ))
       }
     </ul>
   );
 };
-

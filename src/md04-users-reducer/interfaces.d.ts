@@ -1,5 +1,7 @@
-export interface SubI{
-  nick: string;
+export interface UserReqresI{
+  id: number;
   email: string;
-  description?: string;
+  first_name: string;
+  last_name: string;
+  avatar: string;
 }
