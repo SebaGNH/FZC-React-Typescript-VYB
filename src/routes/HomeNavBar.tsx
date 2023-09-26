@@ -23,6 +23,10 @@ export const HomeNavBar = () => {
               <NavLink to="/SuscriptoresHooksReducer" className="nav-link btn btn-outline-primary mx-1">
               Susbs Hooks Reducer
               </NavLink>
+
+              <NavLink to="/UserReqres" className="nav-link btn btn-outline-primary mx-1">
+              User Reqres
+              </NavLink>
             </ul>
           </div>
         </div>
