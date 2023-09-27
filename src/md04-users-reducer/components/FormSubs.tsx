@@ -37,7 +37,9 @@ const formReducer = (state: FormState["inputV"], action: FormReducerAction) => {
       const { inputName, inputValue, id} = action.payload;
       return {
         ...state,
-        [inputName]: inputValue, id
+        [inputName]: inputValue,
+        id,
+        avatar: `https://randomuser.me/api/portraits/med/men/${id}.jpg`
       }
     case "clear":
       return initialState;
@@ -79,7 +81,7 @@ export const FormSubs = ({handleSubmit, usersLength}: FormProps) => {
 
       <input onChange={handleChange} name='email' value={stateInputVal.email} type="text" placeholder='Email' className='form-control mb-2'/>
 
-      <input onChange={handleChange} name='avatar' value={stateInputVal.avatar} type="text" placeholder='Link Avatar' className='form-control mb-2'/>
+      {/* <input onChange={handleChange} name='avatar' value={stateInputVal.avatar} type="text" placeholder='Link Avatar' className='form-control mb-2'/> */}
 
       <button type="submit" className='btn btn-primary mt-3'>Enviar</button>
     </form>

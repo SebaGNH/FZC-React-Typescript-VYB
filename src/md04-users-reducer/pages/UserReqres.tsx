@@ -8,18 +8,18 @@ import { UserReqresI } from '../interfaces';
 
 const initialState = [ // https://reqres.in/api/users?page=1
   {
-    id: 51,
+    id: 1,
     email: 'Lucio_Hettinger@annie.ca',
     first_name: 'Chelsey',
     last_name: 'Dietrich',
-    avatar: 'https://randomuser.me/api/portraits/med/men/51.jpg'
+    avatar: 'https://randomuser.me/api/portraits/med/men/1.jpg'
   },
   {
-    id: 52,
+    id: 2,
     email: 'Nathan@yesenia.net',
     first_name: 'Clementine',
     last_name: 'Bauch',
-    avatar: 'https://randomuser.me/api/portraits/med/men/52.jpg'
+    avatar: 'https://randomuser.me/api/portraits/med/men/2.jpg'
   }
 ]
 
