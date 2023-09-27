@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import './styles.css';
 import { ButtonBack } from "../../components/ButtonBack";
 import { ListSubs } from "../components/ListSubs";
 import { FormSubs } from "../components/FormSubs";
 import { UserReqresI } from '../interfaces';
-import { HomePage } from '../../../../../FE/React-Query/fe-rq01-cripto-random/src/pages/HomePage';
+
 
 const initialState = [ // https://reqres.in/api/users?page=1
   {
@@ -23,23 +24,24 @@ const initialState = [ // https://reqres.in/api/users?page=1
 ]
 
 interface AppState {
-  subsI: Array<UserReqresI>;
+  users: Array<UserReqresI>
   page: number;
 }
 
 export const UserReqres = () => {
-  const [subs, setSubs] = useState<AppState["subsI"]>([]);
+  const [users, setUsers] = useState<AppState["users"]>([]);
   const [page, setPage] = useState<AppState["page"]>(1);
 
 
   useEffect(() => {
-    setSubs(initialState);
+    setUsers(initialState);
   }, []);
 
-  // Handle Submit
-  const handleSubmit = (newSub: UserReqresI): void => {
-    setSubs(subs => [...subs, newSub]);
+  // Handle Submit.
+  const handleSubmit = ( newUser: UserReqresI):void => {
+    setUsers( users => [...users, newUser]);
   }
+
 
   return (
     <div className="container">
@@ -47,7 +49,7 @@ export const UserReqres = () => {
 
       <h1>Usuarios de Resres API</h1>
       .
-      <ListSubs subs={subs} />
+      <ListSubs users={users} />
 
       <FormSubs
         handleSubmit={handleSubmit}
