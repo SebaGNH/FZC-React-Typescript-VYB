@@ -8,14 +8,14 @@ import { UserReqresI } from '../interfaces';
 
 const initialState = [ // https://reqres.in/api/users?page=1
   {
-    id: 1,
+    id: 0,
     email: 'Lucio_Hettinger@annie.ca',
     first_name: 'Chelsey',
     last_name: 'Dietrich',
     avatar: 'https://randomuser.me/api/portraits/med/men/1.jpg'
   },
   {
-    id: 2,
+    id: 1,
     email: 'Nathan@yesenia.net',
     first_name: 'Clementine',
     last_name: 'Bauch',
@@ -39,22 +39,31 @@ export const UserReqres = () => {
 
   // Handle Submit.
   const handleSubmit = ( newUser: UserReqresI):void => {
-    setUsers( users => [...users, newUser]);
+    const nuevoUsuario = newUser;
+    nuevoUsuario["id"] = users.length + 1; // agregamos el id en el padre y avatar desde hijo
+    // setUsers( users => [...users, newUser]);
+    setUsers( users => [...users, nuevoUsuario]);
   }
-
+  //[inputName]: inputValue,
 
   return (
     <div className="container">
       <ButtonBack />
 
       <h1>Usuarios de Resres API</h1>
-      .
-      <ListSubs users={users} />
+      <div className="d-flex flex-row">
+        <div className="col-md-6">
+          <ListSubs users={users} />
+        </div>
 
-      <FormSubs
-        handleSubmit={handleSubmit}
-        usersLength={users.length}
-      />
+        <div className="col-md-6">
+          <FormSubs
+            handleSubmit={handleSubmit}
+            usersLength={users.length}
+          />
+        </div>
+      </div>
+
     </div>
   )
 }

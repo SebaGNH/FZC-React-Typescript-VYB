@@ -30,7 +30,7 @@ type FormReducerAction = {
 }
 
 const formReducer = (state: FormState["inputV"], action: FormReducerAction) => {
-  console.log(state);
+  // console.log(state);
   // no se usa default ya que no debería soportar una opción no permitida
   switch (action.type) {
     case "change_value":
@@ -38,8 +38,8 @@ const formReducer = (state: FormState["inputV"], action: FormReducerAction) => {
       return {
         ...state,
         [inputName]: inputValue,
-        id,
-        avatar: `https://randomuser.me/api/portraits/med/men/${id}.jpg`
+        // id, // se agregó id desde padre
+        avatar: `https://randomuser.me/api/portraits/med/men/${id+13}.jpg`
       }
     case "clear":
       return initialState;
@@ -74,7 +74,7 @@ export const FormSubs = ({handleSubmit, usersLength}: FormProps) => {
   }
 
   return (
-    <form onSubmit={onSubmit} className='col-md-6'>
+    <form onSubmit={onSubmit}>
       <input onChange={handleChange} name='first_name' value={stateInputVal.first_name} type="text" placeholder='Nombre' className='form-control mb-2'/>
 
       <input onChange={handleChange} name='last_name' value={stateInputVal.last_name} type="text" placeholder='Apellido' className='form-control mb-2'/>

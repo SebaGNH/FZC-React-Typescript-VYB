@@ -4,7 +4,8 @@ import { HomeNavBar } from './HomeNavBar';
 import { Suscriptores } from '../md01-subs/pages/Suscriptores';
 import { SuscriptoresReducer } from '../md02-subs-reducer/pages/SuscriptoresReducer';
 import { SuscriptoresHooksReducer } from '../md03-subs-hooks-reducer/pages/SuscriptoresHooksReducer';
-import { UserReqres } from '../md04-users-reducer/pages/userReqres';
+import { UserReqres } from '../mi04-users-reducer/pages/UserReqres';
+
 
 export const AppRoutes = () => {
   return (
