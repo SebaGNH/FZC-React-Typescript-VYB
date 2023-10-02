@@ -18,8 +18,14 @@ const initialState: StateI = {
 const reducer = (state: StateI = initialState, action: ActionI) => {
   const { type } = action;
   switch (type) {
-    case 'increment': return (
-      state = { count: state.count +1 , error: null}
+    //  ...state, hacemos una copia  y sobrescribimos los valores
+    case 'increment':  {
+      const newCount = state.count +1;
+      const hasError = newCount > 5;
+      return state = { ...state, count: state.count +1 , error: hasError? 'Máximo 5' : ''}
+    }
+    case 'decrement': return (
+      state = { ...state, count: state.count -1 , error: null}
     )
 
     default:
@@ -33,26 +39,25 @@ const reducer = (state: StateI = initialState, action: ActionI) => {
 export const CSCounterReducer = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // onClick
-  const handeClick =  () => {
-    dispatch({
-      type: 'increment'
-    });
-  }
-
   return (
     <div className='container'>
       <ButtonBack />
       <h1>Contador Cosden Solution</h1>
 
-      <h2>{state.count}</h2>
-      <p>{state.error}</p>
+      <h2>{state.count} <span className='mx-2'>{state.error}</span></h2>
 
       <button
-        className='btn btn-primary'
-        onClick={() => handeClick()}
+        className='btn btn-primary mx-1'
+        onClick={ () => dispatch({ type: 'increment'})}
       >
         Incrementar
+      </button>
+
+      <button
+        className='btn btn-primary mx-1'
+        onClick={() => dispatch({ type: 'decrement'})}
+      >
+        Decrementar
       </button>
 
     </div>
