@@ -5,6 +5,7 @@ import { Suscriptores } from '../md01-subs/pages/Suscriptores';
 import { SuscriptoresReducer } from '../md02-subs-reducer/pages/SuscriptoresReducer';
 import { SuscriptoresHooksReducer } from '../md03-subs-hooks-reducer/pages/SuscriptoresHooksReducer';
 import { UserReqres } from '../mi04-users-reducer/pages/UserReqres';
+import { CSCounterReducer } from '../cs01-useReducer/pages/CSCounterReducer';
 
 
 export const AppRoutes = () => {
@@ -18,6 +19,9 @@ export const AppRoutes = () => {
         <Route path='/SuscriptoresReducer' element={<SuscriptoresReducer />}/>
         <Route path='/SuscriptoresHooksReducer' element={<SuscriptoresHooksReducer />}/>
         <Route path='/UserReqres' element={<UserReqres />}/>
+
+        {/* Segunda Fila */}
+        <Route path='/CSCounterReducer' element={<CSCounterReducer />}/>
       </Routes>
 
     </>

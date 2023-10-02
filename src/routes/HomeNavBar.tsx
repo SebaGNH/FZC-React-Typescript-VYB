@@ -31,6 +31,18 @@ export const HomeNavBar = () => {
           </div>
         </div>
       </nav>
+      <nav className="navbar navbar-expand-sm navbar-dark">
+        <div className="container-fluid">
+          <div className="collapse navbar-collapse">
+            <ul className="navbar-nav me-auto">
+
+              <NavLink to="/CSCounterReducer" className="nav-link btn btn-outline-primary mx-1">
+              CSCounterReducer
+              </NavLink>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
       <h1>HOME PAGE</h1>
       <p>En esta sección están las rutas</p>
