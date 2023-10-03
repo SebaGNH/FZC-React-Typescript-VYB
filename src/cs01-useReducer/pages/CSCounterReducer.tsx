@@ -22,11 +22,22 @@ const reducer = (state: StateI = initialState, action: ActionI) => {
     case 'increment':  {
       const newCount = state.count +1;
       const hasError = newCount > 5;
-      return state = { ...state, count: state.count +1 , error: hasError? 'Máximo 5' : ''}
-    }
-    case 'decrement': return (
-      state = { ...state, count: state.count -1 , error: null}
-    )
+      return state = {
+        ...state,
+        count: hasError ? state.count: newCount,
+        error: hasError ? 'Máximo 5' : null }
+    };
+    case 'decrement':  {
+      const newCount = state.count - 1;
+      const hasError = newCount <= 0;
+      return state = {
+        ...state,
+        count: hasError ? state.count: newCount,
+        error: hasError ? 'Mínimo 1' : null }
+    };
+    // case 'decrement': return (
+    //   state = { ...state, count: state.count -1 , error: null}
+    // )
 
     default:
       return state;
